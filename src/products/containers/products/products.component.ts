@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { Pizza } from '../../models/pizza.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromStore from '../../store';
+import { Pizza } from '../../models/pizza.model';
 
 @Component({
   selector: 'products',
@@ -29,9 +29,8 @@ import * as fromStore from '../../store';
     </div>
   `,
 })
-
 export class ProductsComponent implements OnInit {
-  pizzas$: Observable<Pizza[]>;         // $ indicates an observable (purely for clarity, not standard)
+  pizzas$: Observable<Pizza[]>;
 
   constructor(private store: Store<fromStore.ProductsState>) {}
 
@@ -39,5 +38,4 @@ export class ProductsComponent implements OnInit {
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
     this.store.dispatch(new fromStore.LoadPizzas());
   }
-
 }

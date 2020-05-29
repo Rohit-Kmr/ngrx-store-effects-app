@@ -2,29 +2,26 @@ import { Action } from '@ngrx/store';
 
 import { Topping } from '../../models/topping.model';
 
-// load toppings
 export const LOAD_TOPPINGS = '[Products] Load Toppings';
-export const LOAD_TOPPINGS_FAIL = '[Products] Load Toppings Failed';
-export const LOAD_TOPPINGS_SUCCESS = '[Products] Load Toppings Successful';
+export const LOAD_TOPPINGS_FAIL = '[Products] Load Toppings Fail';
+export const LOAD_TOPPINGS_SUCCESS = '[Products] Load Toppings Success';
 
-// possible actions
 export class LoadToppings implements Action {
-    readonly type = LOAD_TOPPINGS;
+  readonly type = LOAD_TOPPINGS;
 }
 
 export class LoadToppingsFail implements Action {
-    readonly type = LOAD_TOPPINGS_FAIL;
-
-    // for sending some error message
-    constructor (public payload: any) {}
+  readonly type = LOAD_TOPPINGS_FAIL;
+  constructor(public payload: any) {}
 }
 
 export class LoadToppingsSuccess implements Action {
-    readonly type = LOAD_TOPPINGS_SUCCESS;
-
-    // pizza information
-    constructor (public payload: Topping[]) {}
+  readonly type = LOAD_TOPPINGS_SUCCESS;
+  constructor(public payload: Topping[]) {}
 }
 
-// export all action types
-export type ToppingsAction = LoadToppings | LoadToppingsFail | LoadToppingsSuccess;
+// action types
+export type ToppingsAction =
+  | LoadToppings
+  | LoadToppingsFail
+  | LoadToppingsSuccess;

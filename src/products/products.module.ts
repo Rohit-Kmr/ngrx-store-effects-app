@@ -40,10 +40,7 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(ROUTES),
-    // register the store module
     StoreModule.forFeature('products', reducers),
-
-    // register the effects module
     EffectsModule.forFeature(effects),
   ],
   providers: [...fromServices.services],

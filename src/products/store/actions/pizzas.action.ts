@@ -1,29 +1,25 @@
 import { Action } from '@ngrx/store';
-import { Pizza } from 'src/products/models/pizza.model';
+
+import { Pizza } from '../../models/pizza.model';
 
 // load pizzas
 export const LOAD_PIZZAS = '[Products] Load Pizzas';
-export const LOAD_PIZZAS_FAIL = '[Products] Load Pizzas Failed';
-export const LOAD_PIZZAS_SUCCESS = '[Products] Load Pizzas Successful';
+export const LOAD_PIZZAS_FAIL = '[Products] Load Pizzas Fail';
+export const LOAD_PIZZAS_SUCCESS = '[Products] Load Pizzas Success';
 
-// possible actions
 export class LoadPizzas implements Action {
-    readonly type = LOAD_PIZZAS;
+  readonly type = LOAD_PIZZAS;
 }
 
 export class LoadPizzasFail implements Action {
-    readonly type = LOAD_PIZZAS_FAIL;
-
-    // for sending some error message
-    constructor (public payload: any) {}
+  readonly type = LOAD_PIZZAS_FAIL;
+  constructor(public payload: any) {}
 }
 
 export class LoadPizzasSuccess implements Action {
-    readonly type = LOAD_PIZZAS_SUCCESS;
-
-    // pizza information
-    constructor (public payload: Pizza[]) {}
+  readonly type = LOAD_PIZZAS_SUCCESS;
+  constructor(public payload: Pizza[]) {}
 }
 
-// export all action types
+// action types
 export type PizzasAction = LoadPizzas | LoadPizzasFail | LoadPizzasSuccess;

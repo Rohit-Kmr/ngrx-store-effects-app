@@ -48,7 +48,6 @@ export class ProductItemComponent implements OnInit {
   onRemove(event: Pizza) {
     const remove = window.confirm('Are you sure?');
     if (remove) {
-      
     }
   }
 }
